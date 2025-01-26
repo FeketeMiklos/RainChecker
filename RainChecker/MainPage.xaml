@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RainChecker.MainPage"
+             Title="Rainchecker"          
+             Shell.NavBarIsVisible="False">
+    
+    <ScrollView>
+        <VerticalStackLayout Spacing="25">
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!--Daily Weather-->
+            <Grid>
+                <Frame
+                    BackgroundColor="Black" 
+                    Opacity="0.5"
+                    WidthRequest="370"
+                    HeightRequest="175"
+                    CornerRadius="15"
+                    HasShadow="False" 
+                />
+                
+                <VerticalStackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Daily weather with image-->
+                        <Label x:Name="lblWeatherToday" Padding="20,0,0,0" FontSize="25" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+
+                        <Border Grid.Column="1" StrokeThickness="0" Padding="10,10,0,0">
+                            <Image x:Name="imgWeatherToday" WidthRequest="100" HeightRequest="100" Grid.Column="1"></Image>
+                        </Border>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--Min daily temp-->
+                        <Label FontSize="20" Padding="20,0,0,0" Grid.Column="0" VerticalTextAlignment="Center">Min:</Label>
+                        <Label x:Name="lblMin" Padding="0,0,35,0" HorizontalTextAlignment="End" FontSize="35" Grid.Column="0"></Label>
+
+                        <!--Max daily temp-->
+                        <Label FontSize="20" Padding="20,0,0,0" Grid.Column="1" VerticalTextAlignment="Center">Max:</Label>
+                        <Label x:Name="lblMax" Padding="0,0,30,0" HorizontalTextAlignment="End" FontSize="35" Grid.Column="1"></Label>
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+            
+            <!--Rain-->
+            <Grid>
+                <Frame
+                    BackgroundColor="Black" 
+                    Opacity="0.5"
+                    WidthRequest="370"
+                    HeightRequest="170"
+                    CornerRadius="15"
+                    HasShadow="False" 
+                />
+
+                <VerticalStackLayout Spacing="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="220" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+
+                        <!--Umbrella need text and image-->
+                        <Border Grid.Column="0" StrokeThickness="0" Padding="0,16,0,0">
+                            <Image x:Name="imgUmbrella" WidthRequest="100" HeightRequest="100" Grid.Column="0"></Image>
+                        </Border>
+
+                        <!--Bring an umbrella OR No umbrella needed-->
+                        <Label x:Name="lblBringUmbrella" Margin="0,20,30,0" FontSize="20" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+
+                        <!--Next rain-->
+                        <Label FontSize="20" Padding="60,0,0,0" HorizontalTextAlignment="Start" Grid.Row="1" Grid.ColumnSpan="2" VerticalTextAlignment="Center">Next rainy hour:</Label>
+                        <Label x:Name="lblNextRain" HorizontalTextAlignment="End" Grid.ColumnSpan="2" FontSize="35" Grid.Row="1" VerticalTextAlignment="Center"></Label>
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+            
+            <!--Current weather-->
+            <VerticalStackLayout>
+                <Grid>
+                    <Frame
+                        BackgroundColor="Black" 
+                        Opacity="0.5"
+                        WidthRequest="370"
+                        HeightRequest="180"
+                        CornerRadius="15"
+                        HasShadow="False" 
+                    />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Title-->
+                        <Label FontSize="30" Padding="0,5,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center">Current weather:</Label>
+
+                        <!--Current weather and temp-->
+                        <Label x:Name="lblWeatherRn" FontSize="24" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="20,10,0,0"></Label>
+                        <Label x:Name="lblTempRn" FontSize="40" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,10,0,0"></Label>
+
+                        <!--Current time-->
+                        <Label x:Name="lblTime" FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"></Label>
+                        
+                    </Grid>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!--City Settings-->
+            <VerticalStackLayout>
+                <Grid>
+                    <Frame
+                        BackgroundColor="Black" 
+                        Opacity="0.5"
+                        WidthRequest="370"
+                        HeightRequest="130"
+                        CornerRadius="15"
+                        HasShadow="False" 
+                    />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Title and lock-->
+                        <Label Grid.Row="0" Grid.Column="0" Margin="40,5,0,0" FontSize="30">City:</Label>
+                        <Label Grid.Row="0" Grid.Column="1" Margin="0,8,55,0" FontSize="20" HorizontalTextAlignment="End" VerticalTextAlignment="Center">Lock</Label>
+                        <CheckBox x:Name="cbLockCity" Grid.Row="0" Grid.Column="1" Margin="0,10,10,0" HorizontalOptions="End" CheckedChanged="cbLockCity_CheckedChanged"></CheckBox>
+
+                        <!--City picker-->
+                        <Picker x:Name="picker" Title="Select a city" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TitleColor="Aqua" FontSize="30" WidthRequest="200" HorizontalTextAlignment="Center" SelectedIndexChanged="picker_SelectedIndexChanged">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Győr</x:String>
+                                    <x:String>Veszprém</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </Grid>
+                </Grid>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
